@@ -1,0 +1,12 @@
+{
+ "apikey": "xyipj2fx4akxggck",
+ "apisecret": "ehzimap1bmhdbmrg2jbysn6jddxmmfr4",
+ "requesttoken": "",
+ "accesstoken": "",
+ "username": "XXXXXX",
+ "password": "XXXXXXX",
+ "pin": "110278",
+ "loginurl": "https://kite.trade/connect/login?v=3&api_key=xyipj2fx4akxggck",
+ "dataurl": "https://api.kite.trade/instruments/historical/",
+ "chromedriverpath": "C:\\Users\\sn00346961\\Anaconda3\\Scripts\\chromedriver.exe"
+ }
