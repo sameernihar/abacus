@@ -75,9 +75,9 @@ class AccessInitiator:
 
     def printallbrokervalues(self):
         print('apikey', ':', self.apikey)
-        print('apisecret', ':', self.apisecret)
+        #print('apisecret', ':', self.apisecret)
         print('username', ':', self.username)
-        print('password', ':', self.password)
-        print('requestToken', ':', self.requesttoken)
+        #print('password', ':', self.password)
+        #print('requestToken', ':', self.requesttoken)
         print('accessToken', ':', self.accesstoken)
-        print('pin', ':', self.pin)
+        #print('pin', ':', self.pin)

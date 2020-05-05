@@ -28,6 +28,9 @@ class ORBStrategy:
         self.breakevenpercent = brokerconfig['stoploss percent']
         self.stoplosspercent = brokerconfig['breakeven percent']
         self.quantity = brokerconfig['quantity']
+        self.breakevenpercent = float(self.breakevenpercent)
+        self.stoplosspercent = float(self.stoplosspercent)
+        self.quantity = int(self.quantity)
 
     def setOHOL(self, ai):
         dr = DataRetriever(self.symbolcode)
@@ -66,7 +69,7 @@ class ORBStrategy:
         if (self.CurrentClose > self.OpeningHigh) and (self.CurrentOpen < self.OpeningHigh):
             print("Bingo!, We are in Opening Range Upside Breakout, take long trade!")
 
-            tm = TradeManager(self.symboltxt)
+            tm = TradeManager(self.symboltxt,self.symbolcode)
 
             # ai, exchange, ordertype, transaction, product, variety, price, SL, TSL, Target, TSLOrder
             breakevenpoints = math.floor(self.CurrentClose*(self.breakevenpercent/100))
@@ -80,7 +83,7 @@ class ORBStrategy:
         if (self.CurrentClose < self.OpeningLow) and (self.CurrentOpen > self.OpeningLow):
             print("Bingo!, We are in Opening Range Downside Breakout, take short trade!")
 
-            tm = TradeManager(self.symboltxt)
+            tm = TradeManager(self.symboltxt,self.symbolcode)
 
             # ai, exchange, ordertype, transaction, product, variety, price, SL, TSL, Target, TSLOrder
             breakevenpoints = math.ceil(self.CurrentClose * (self.breakevenpercent / 100))

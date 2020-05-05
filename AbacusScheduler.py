@@ -10,7 +10,9 @@ from datetime import datetime, timedelta
 logging.basicConfig(level=logging.ERROR)
 
 ai = AccessInitiator()
-orbs = ORBStrategy("BANKNIFTY20APRFUT","14350850")
+#orbs = ORBStrategy("BANKNIFTY20JULFUT","11622914")
+#orbs = ORBStrategy("BANKNIFTY20JUNFUT","24507650")
+orbs = ORBStrategy("BANKNIFTY20MAYFUT","13430018")
 jobid = ""
 
 def start_ORB(ai, orbs):
@@ -26,14 +28,14 @@ def start_trading(ai):
     ai.printallbrokervalues()
 
 def stop_ORB():
-    print("Called start ORB strategy", datetime.now())
+    print("Called stop ORB strategy", datetime.now())
     global jobid
     schedule.cancel_job(jobid)
 
 
 # Task scheduling
-schedule.every().day.at("09:00").do(start_trading, ai=ai)
-schedule.every().day.at("09:30").do(start_ORB, ai=ai, orbs=orbs)
+schedule.every().day.at("10:12").do(start_trading, ai=ai)
+schedule.every().day.at("10:15").do(start_ORB, ai=ai, orbs=orbs)
 schedule.every().day.at("15:05").do(stop_ORB)
 
 while True:

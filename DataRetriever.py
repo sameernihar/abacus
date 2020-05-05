@@ -39,7 +39,7 @@ class DataRetriever:
         print("self.to_time :", self.to_time)
 
     def setTimeframe(self, timeframe):
-        print("Timeframe :", timeframe)
+        #print("Timeframe :", timeframe)
         self.timeframe = str(timeframe)
         print(" Self Timeframe :", self.timeframe)
 
@@ -51,7 +51,7 @@ class DataRetriever:
         # ai.printallbrokervalues()
         headers = {"X-Kite-Version": "3", "Authorization": "token " + str(ai.apikey) + ":" + str(ai.accesstoken)}
         print("url:", url)
-        print("headers:", headers)
+        #print("headers:", headers)
         response = requests.get(url=url, headers=headers)
         print("response.status_code", response.status_code)
         print("response.raw response", response.raw)

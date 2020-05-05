@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 class TradeManager:
-    def __init__(self, symboltext,symbolcode):
+    def __init__(self, symboltext, symbolcode):
         self.symboltext = symboltext
         self.timeframe = ""
         self.exchange = ""
@@ -69,11 +69,11 @@ class TradeManager:
         if fminute == -1:
             fminute = 59; fhour = fhour - 1
 
-        dr.setFromDateTime(datetime.now().date(), fhour, fminute, fseconds)
-        dr.setToDateTime(datetime.now().date(),thour,tminute,tseconds)
-        dr.setTimeframe("1minute")
+        self.dr.setFromDateTime(datetime.now().date(), fhour, fminute, fseconds)
+        self.dr.setToDateTime(datetime.now().date(),thour,tminute,tseconds)
+        self.dr.setTimeframe("minute")
 
-        responseData = dr.getHistoricalData(ai)
+        responseData = self.dr.getHistoricalData(ai)
 
         self.CurrentOpen = responseData['data']['candles'][0][1]
         self.CurrentHigh = responseData['data']['candles'][0][2]
